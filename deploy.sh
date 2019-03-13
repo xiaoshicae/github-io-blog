@@ -22,3 +22,4 @@ git push -f git@github.com:xiaoshicae/xiaoshicae.github.io.git master
 cd -
 
 echo "部署GithubPages完成"
+
