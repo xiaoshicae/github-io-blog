@@ -3,6 +3,9 @@
 # 当发生错误时中止脚本
 set -e
 
+# 安装依赖
+npm install
+
 # 构建
 npm run build
 
