@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <h1>hi hi hi </h1>
     <h1 @click="clickTest">{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
