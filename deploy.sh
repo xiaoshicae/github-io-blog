@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash -ilex
 
 # 当发生错误时中止脚本
 set -e
