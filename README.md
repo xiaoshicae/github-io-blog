@@ -1,4 +1,4 @@
-# blog
+# github-blog
 
 ## 常用命令
 * 安装依赖
