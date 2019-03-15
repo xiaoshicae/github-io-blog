@@ -20,8 +20,8 @@ git add -A
 git commit -m 'deploy'
 
 # 指定用户
-git config --global user.email "snk_zhuang@126.com"
-git config --global user.name "zhuangshui"
+git config user.email "snk_zhuang@126.com"
+git config user.name "zhuangshui"
 
 # 部署到 https://<USERNAME>.github.io
 git push -f git@github.com:xiaoshicae/xiaoshicae.github.io.git master
