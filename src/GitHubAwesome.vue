@@ -56,55 +56,60 @@
 <script>
 import axios from "axios";
 
+
+const awesomeList = [
+  "sindresorhus/awesome",
+  "avelino/awesome-go",
+  "vinta/awesome-python",
+  "akullpp/awesome-java",
+  "vuejs/awesome-vue",
+  "enaqx/awesome-react",
+  "justjavac/awesome-wechat-weapp"
+];
+
 function orderFunc (a, b) {
-  const orderList = [
-    "sindresorhus/awesome",
-    "avelino/awesome-go",
-    "vinta/awesome-python",
-    "akullpp/awesome-java",
-    "vuejs/awesome-vue",
-    "enaqx/awesome-react",
-    "justjavac/awesome-wechat-weapp"
-  ];
-  return orderList.indexOf(a) - orderList.indexOf(b);
+  return awesomeList.indexOf(a) - awesomeList.indexOf(b);
 }
+
 
 export default {
   name: "GitHubAwesome",
   data () {
     return {
       activeName: "",
-      awesomeInfoList: []
+      awesomeInfo: {},
     };
   },
   methods: {
-    getArticleById (articleId) {
-      // alert(articleId)
-      articleId;
+    getAwesomeContent (awsome) {
+      const awsomes = awsome.split('/')
+      const user = awsomes[0]
+      const repo = awsomes[1]
+      const url = `/awsome_readme/${user}_${repo}_README.md`
+
+      axios
+        .get(url)
+        .then(resp => {
+          window.console.log(resp);
+          const data = resp.data;
+          this.$set(this.awesomeInfo, awsome, data)
+        })
+        .catch(err => {
+          window.console.log(err);
+        });
+    }
+  },
+  computed: {
+    awesomeInfoList: function () {
+      const keys = Object.keys(this.awesomeInfo)
+      keys.sort(orderFunc)
+      return keys.map(key => { return { repo: key, content: this.awesomeInfo[key] } })
     }
   },
   created () {
-    // const url = "http://localhost:5000/"
-    const url = "http://47.102.202.113:5000/";
-    axios
-      .get(url)
-      .then(resp => {
-        window.console.log(resp);
-        const data = resp.data;
-        const keys = Object.keys(data);
-        keys.sort(orderFunc);
-
-        const awesomeInfoList = [];
-        keys.forEach(k => {
-          awesomeInfoList.push({ repo: k, content: data[k] });
-        });
-
-        this.awesomeInfoList = awesomeInfoList;
-        this.activeName = keys[0];
-      })
-      .catch(err => {
-        window.console.log(err);
-      });
+    awesomeList.forEach(awesome => {
+      this.getAwesomeContent(awesome)
+    })
   }
 };
 </script>
