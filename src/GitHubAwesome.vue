@@ -58,7 +58,7 @@ import axios from "axios";
 
 
 const awesomeList = [
-  "sindresorhus/awesome",
+  // "sindresorhus/awesome",
   "avelino/awesome-go",
   "vinta/awesome-python",
   "akullpp/awesome-java",
