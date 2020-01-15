@@ -56,7 +56,7 @@
 <script>
 import axios from "axios";
 
-function orderFunc(a, b) {
+function orderFunc (a, b) {
   const orderList = [
     "sindresorhus/awesome",
     "avelino/awesome-go",
@@ -71,19 +71,19 @@ function orderFunc(a, b) {
 
 export default {
   name: "GitHubAwesome",
-  data() {
+  data () {
     return {
       activeName: "",
       awesomeInfoList: []
     };
   },
   methods: {
-    getArticleById(articleId) {
+    getArticleById (articleId) {
       // alert(articleId)
       articleId;
     }
   },
-  created() {
+  created () {
     // const url = "http://localhost:5000/"
     const url = "http://47.102.202.113:5000/";
     axios

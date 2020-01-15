@@ -4,7 +4,6 @@ import "mavon-editor/dist/css/index.css";
 
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
-import "./assets/icon/iconfont.css";
 import router from "./router";
 import App from "./App.vue";
 
