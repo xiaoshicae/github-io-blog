@@ -76,7 +76,7 @@ export default {
   name: "GitHubAwesome",
   data () {
     return {
-      activeName: "awesome-go",
+      activeName: "avelino/awesome-go",
       awesomeInfo: {},
     };
   },
